@@ -1,3 +1,4 @@
+```md
 assistant/
 │
 ├── main.py
@@ -55,3 +56,4 @@ assistant/
 │   └── assistant.log
 │
 └── PROJECT_CHARTER.txt       # 🧭 SOURCE OF TRUTH
+```

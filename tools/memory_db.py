@@ -46,3 +46,36 @@ def recall_memory(keyword: str):
     rows = cur.fetchall()
     conn.close()
     return rows
+
+def list_memory(limit: int = 20):
+    conn = get_connection()
+    cur = conn.cursor()
+    cur.execute(
+        "SELECT id, category, mem_key, mem_value, created_at FROM memory ORDER BY id DESC LIMIT ?",
+        (limit,)
+    )
+    rows = cur.fetchall()
+    conn.close()
+    return rows
+
+
+def update_memory(mem_id: int, new_value: str):
+    conn = get_connection()
+    cur = conn.cursor()
+    cur.execute(
+        "UPDATE memory SET mem_value = ? WHERE id = ?",
+        (new_value, mem_id)
+    )
+    conn.commit()
+    conn.close()
+
+
+def delete_memory(mem_id: int):
+    conn = get_connection()
+    cur = conn.cursor()
+    cur.execute(
+        "DELETE FROM memory WHERE id = ?",
+        (mem_id,)
+    )
+    conn.commit()
+    conn.close()

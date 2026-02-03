@@ -85,6 +85,7 @@ def run_engine():
             print("Action cancelled.")
             return
 
+    
     # 8. Final output (execution happens inside tools later)
     print("Result:", plugin_response.get("output"))
     input("Press Enter to exit...")
